@@ -1,0 +1,3 @@
+6HYIo3TiGV5xgInF
+
+mongodb+srv://reynaldopena:6HYIo3TiGV5xgInF@cluster0.e2bjfus.mongodb.net/?retryWrites=true&w=majority
