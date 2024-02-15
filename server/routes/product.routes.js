@@ -10,6 +10,9 @@ import express from 'express'
 
   router.route('/api/products').delete(productCtrl.removeAll)
 
+  router.param('keyword', productCtrl.productByName)
+  router.route('/api/products/search/:keyword').get(productCtrl.read);
+
 
 
   export default router

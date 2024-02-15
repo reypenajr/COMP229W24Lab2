@@ -86,6 +86,22 @@ const removeAll = async(req, res)=>{
     }
 };
 
+const productByName = async (req, res, next, keyword) => { 
+    try {
+        let product = await Product.find({"name": new RegExp(keyword, 'i')})
+        if (!product)
+            return res.status(400).json({ 
+                error: "Product not found"
+            });
+        req.profile = product;
+        next();
+    } catch (err) {
+        return res.status(400).json({ 
+            error: "Could not retrieve product"
+        });
+    }
+}
 
-export default { create, productByID, read, list, remove, removeAll, update}
+
+export default { create, productByID, read, list, remove, removeAll, update, productByName}
 
