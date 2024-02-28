@@ -89,6 +89,7 @@ const removeAll = async(req, res)=>{
 const productByName = async (req, res, next, keyword) => { 
     try {
         let product = await Product.find({"name": new RegExp(keyword, 'i')})
+        
         if (!product)
             return res.status(400).json({ 
                 error: "Product not found"
